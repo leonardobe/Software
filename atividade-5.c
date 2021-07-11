@@ -1,40 +1,40 @@
 #include <stdio.h>
-#define tam 4
+#define tamanhoVetor 4
 
-int *leVetor(int vet[], int vet2[]){
+int *lerVetores(int vetor1[], int vetor2[]){
     for(int i=0 ; i<4 ; i++){
         printf("Informe o valor do primero  vetor: \n");
-        scanf("%d", &vet[i]);
+        scanf("%d", &vetor1[i]);
     }
 
     printf("\n\n");
     for(int i=0 ; i<4 ; i++){
         printf("Informe o valor do segundo vetor: \n");
-        scanf("%d", &vet2[i]);
+        scanf("%d", &vetor2[i]);
     }
-    return vet2, vet;
+    return vetor2, vetor1;
 }
-int *intercala(int vet3[], int vet[], int vet2[]){
+int *intercalarValoresVetores(int vetor3[], int vetor1[], int vetor2[]){
     for (int i = 0; i < 4; i++) {
-        vet3[i*2] = vet[i];
+        vetor3[i*2] = vetor1[i];
         for (int i = 0; i < 4; i++) {
-            vet3[i*2+1] = vet2[i];
+            vetor3[i*2+1] = vetor2[i];
         }
     }
-    return vet3;
+    return vetor3;
 }
-int  imprimeIntercalado(int vet3[]){
+int  imprimirTerceiroVetor(int vetor3[]){
     printf("\n");
     printf("---- Terceiro Vetor ---- \n");
-    for (int i = 0; i < tam*2; i++) {
-        printf("%d ", vet3[i]);
+    for (int i = 0; i <tamanhoVetor*2; i++) {
+        printf("%d ", vetor3[i]);
     }
     return 0;
 }
 int main(){
-    int vet[tam], vet2[tam], vet3[tam*2];
+    int vetor1[tamanhoVetor], vetor2[tamanhoVetor], vetor3[tamanhoVetor*2];
 
-    leVetor(vet, vet2);
-    intercala(vet3, vet, vet2);
-    imprimeIntercalado(vet3);
+    lerVetores(vetor1, vetor2);
+    intercalarValoresVetores(vetor3, vetor1, vetor2);
+    imprimirTerceiroVetor(vetor3);
 }
